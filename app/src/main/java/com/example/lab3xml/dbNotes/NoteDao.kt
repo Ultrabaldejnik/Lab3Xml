@@ -12,7 +12,7 @@ interface NoteDao {
     @Upsert
     suspend fun upsertNote(note: Note)
 
-    @Query("SELECT * from note WHERE owner LIKE :owner ORDER BY creationDateTime")
+    @Query("SELECT * from note WHERE owner LIKE :owner")
     fun getNotes(owner : String) : LiveData<List<Note>>
 
     @Query("SELECT * from note")
